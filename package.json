@@ -19,7 +19,9 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "accordion-js": "^3.3.0",
+    "dropzone": "^6.0.0-beta.2",
     "sirv-cli": "^1.0.0",
-    "svelte-fa": "^3.0.3"
+    "svelte-fa": "^3.0.3",
+    "svelte-file-dropzone": "^1.0.0-dev.1"
   }
 }

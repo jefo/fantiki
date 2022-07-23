@@ -33,8 +33,8 @@
                 <input type="checkbox" id="cb-{id}-{index}" />
                 <label for="cb-{id}-{index}">{item.title}</label>
                 <span class="flex-1 flex-shrink-0"></span>
-                <span class="badge text-xs border rounded p-1 mr-1">{item.count}</span>
-                <span class="badge text-xs border rounded p-1">{item.rarity}</span>
+                <span class="badge text-xs border rounded p-1 mr-1" title="Images count">{item.count}</span>
+                <span class="badge text-xs border rounded p-1" title="Images rarity">{item.rarity}</span>
             </div>
             {/each}
         </div>
