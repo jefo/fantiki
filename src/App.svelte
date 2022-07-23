@@ -1,12 +1,14 @@
 <script>
-	import {onMount} from 'svelte';
-	import Accordion from 'accordion-js';
-	import 'accordion-js/dist/accordion.min.css';
 	import Layer from "./components/Layer.svelte";
 
-	onMount(() => {
-		new Accordion('.layers-list');
-	})
+	let expandedId = null;
+
+	const layers = [
+		{ id: 1, title: 'Backgrounds' },
+		{ id: 2, title: 'Body' },
+		{ id: 3, title: 'Clothes' },
+		{ id: 4, title: 'Eyes' },
+	];
 </script>
 
 <main>
@@ -14,18 +16,16 @@
 		<div class="w-1/4">
 			<div class="text-lg">Layers</div>
 			<div class="pr-4 layers-list">
-				<div class="mb-2">
-					<Layer id="1" title="Backgrounds" />
-				</div>
-				<div class="mb-2">
-					<Layer id="2" title="Body" />
-				</div>
-				<div class="mb-2">
-					<Layer title="Clothes" />
-				</div>
-				<div class="mb-2">
-					<Layer id="3" title="Eyes" />
-				</div> 
+				{#each layers as item}
+					<div class="mb-2">
+						<Layer 
+							id={item.id} 
+							title={item.title} 
+							expanded={expandedId === item.id} 
+							on:chevron={() => expandedId === item.id ? expandedId = null : expandedId = item.id}
+						/>
+					</div>
+				{/each}
 			</div>
 		</div>
 		<div class="w-3/4 p-2">
