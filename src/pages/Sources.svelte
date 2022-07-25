@@ -1,6 +1,8 @@
 <script>
     import { onMount } from "svelte";
 
+    const images = {};
+
     onMount(() => {
         window.addEventListener(
             "dragover",
@@ -78,6 +80,18 @@
         dropzone.addEventListener("dragleave", dragLeave, false);
         dropzone.addEventListener("drop", dropEvent, false);
     });
+
+    const handleFilesChange = (e) => {
+        const files = e.target.files;
+        console.log("files", files);
+        for (const file of files) {
+            const fr = new FileReader();
+            fr.onload = () => {
+                images[file.webkitRelativePath] = fr.result;
+            };
+            fr.readAsDataURL(file);
+        }
+    };
 </script>
 
 <div class="container mx-auto w-3/4 p-4">
@@ -105,7 +119,21 @@
                 <span class="text-blue-600 underline">browse</span>
             </span>
         </span>
-        <input type="file" name="file_upload" class="hidden" />
+        <input
+            type="file"
+            name="file_upload"
+            class="hidden"
+            webkitdirectory
+            multiple
+            on:change={handleFilesChange}
+        />
     </label>
+
+    <div class="grid grid-cols-7">
+        {#each Object.values(images) as img}
+            <img src={img} />
+        {/each}
+    </div>
+
     <div id="filelist" />
 </div>

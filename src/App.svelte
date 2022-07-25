@@ -34,7 +34,7 @@ import Test from "./pages/Test.svelte";
 	}
 
 	.btn-nav {
-        background-color: rgb(255, 212, 59);
+        background-color: rgb(99, 230, 190);
         border: 2px solid rgb(24, 49, 83);
         border-radius: 12px;
     }
