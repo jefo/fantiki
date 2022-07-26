@@ -21,11 +21,9 @@
             icon={expanded ? faChevronUp : faChevronDown}
         />
     </button>
-    {#if expanded}
-        <div class="dropdown">
-            <slot />
-        </div>
-    {/if}
+    <div class:hidden={!expanded} class="dropdown">
+        <slot />
+    </div>
 </div>
 
 <style>

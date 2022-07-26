@@ -8,6 +8,9 @@
     const dispatch = createEventDispatcher();
 
     const handleSubmit = () => {
+        if (!title) {
+            return;
+        }
         console.log("handleSubmit", title);
         dispatch("commit", title);
         title = '';
