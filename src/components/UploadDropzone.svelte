@@ -90,7 +90,7 @@
         const fr = new FileReader();
         fr.onload = () => {
             images[file.webkitRelativePath] = fr.result;
-            console.log(file);
+            // console.log(file);
             dispatch('upload', { path: file.webkitRelativePath || file.name, data: fr.result });
         };
         fr.readAsDataURL(file);
