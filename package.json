@@ -23,10 +23,14 @@
     "dropzone": "^6.0.0-beta.2",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "sirv-cli": "^1.0.0",
+    "svelte-dnd-action": "^0.9.19",
     "svelte-fa": "^3.0.3",
     "svelte-file-dropzone": "^1.0.0-dev.1",
     "svelte-redux-connect": "^1.2.1",
-    "svelte-routing": "^1.6.0"
+    "svelte-routing": "^1.6.0",
+    "svelte-sortable-list": "^1.1.0"
   }
 }

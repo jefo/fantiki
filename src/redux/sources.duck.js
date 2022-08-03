@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     layers: [],
     images: {},
+    selectedLayerId : 0,
 };
 
 const sourcesSlice = createSlice({
@@ -12,6 +13,9 @@ const sourcesSlice = createSlice({
     reducers: {
         addLayer(state, { payload }) {
             state.layers.push(payload);
+            if (state.layers.length === 1) {
+                state.selectedLayerId = payload.id;
+            }
             return state;
         },
         removeLayer(state, { payload }) {
@@ -21,7 +25,11 @@ const sourcesSlice = createSlice({
         addImage(state, { payload }) {
             set(state, ['images', payload.layerId, payload.path], payload.data);
             return state;
-        }
+        },
+        selectLayer(state, { payload }) {
+            state.selectedLayerId  = payload.id;
+            return state;
+        },
     }
 });
 
