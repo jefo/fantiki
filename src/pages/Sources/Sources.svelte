@@ -1,12 +1,12 @@
 <script>
     import Fa from "svelte-fa";
-    import SortableList from "svelte-sortable-list";
-    import { dndzone } from "svelte-dnd-action";
+    // import DragDropList from "svelte-dragdroplist";
+    import DragAndDropList from "../../components/Sortable.svelte";
     import Layer from "../../components/Layer.svelte";
     import LayerEditor from "../../components/LayerEditor.svelte";
     import UploadDropzone from "../../components/UploadDropzone.svelte";
-    import Button from "../../components/Button.svelte";
     import { faGear } from "@fortawesome/free-solid-svg-icons";
+import Sortable from "../../components/Sortable.svelte";
 
     export let layers = [];
     export let images = {};
@@ -42,13 +42,13 @@
     <div class="w-1/3">
         <LayerEditor on:commit={handleAddLayer} />
         <div class="mb-2" />
-        <SortableList on:sort={sortList} list={layers} let:item>
+        <Sortable let:item bind:items={layers}>
             <div class="mb-2">
                 <Layer id={item.id} on:click={() => selectLayer(item)}>
                     {item.title}
                 </Layer>
             </div>
-        </SortableList>
+        </Sortable>
     </div>
     <div class="w-3/4 px-4">
         {#if selectedLayer}
