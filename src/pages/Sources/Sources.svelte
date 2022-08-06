@@ -6,12 +6,13 @@
     import LayerEditor from "../../components/LayerEditor.svelte";
     import UploadDropzone from "../../components/UploadDropzone.svelte";
     import { faGear } from "@fortawesome/free-solid-svg-icons";
-import Sortable from "../../components/Sortable.svelte";
+    import Sortable from "../../components/Sortable.svelte";
 
     export let layers = [];
     export let images = {};
     export let selectedLayer = null;
     export let addLayer = null;
+    export let setLayers = null;
     export let removeLayer = null;
     export let addImage = null;
     export let selectLayer = null;
@@ -35,14 +36,18 @@ import Sortable from "../../components/Sortable.svelte";
         return images[layerId] && Object.keys(images[layerId]).length > 0;
     };
 
-    const sortList = ev => {layers = ev.detail};
+    const handleOrderChange = ({ detail }) => {
+        console.log('e', detail);
+
+        setLayers(detail);
+    };
 </script>
 
 <div class="container mx-auto flex p-4">
     <div class="w-1/3">
         <LayerEditor on:commit={handleAddLayer} />
         <div class="mb-2" />
-        <Sortable let:item bind:items={layers}>
+    <Sortable let:item on:orderChanged={handleOrderChange} bind:items={layers}>
             <div class="mb-2">
                 <Layer id={item.id} on:click={() => selectLayer(item)}>
                     {item.title}

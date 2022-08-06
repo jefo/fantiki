@@ -18,6 +18,10 @@ const sourcesSlice = createSlice({
             }
             return state;
         },
+        setLayers(state, { payload }) {
+            state.layers = [...payload];
+            return state;
+        },
         removeLayer(state, { payload }) {
             state.layers = state.layers.filter(l => l.id === payload.id);
             return state;

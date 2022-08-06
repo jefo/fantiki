@@ -18,6 +18,7 @@ const mapStateToProps = createSelector(
 
 const mapDispatchToProps = {
     addLayer: actions.addLayer,
+    setLayers: actions.setLayers,
     removeLayer: actions.removeLayer,
     addImage: actions.addImage,
     selectLayer: actions.selectLayer,
