@@ -37,8 +37,6 @@
     };
 
     const handleOrderChange = ({ detail }) => {
-        console.log('e', detail);
-
         setLayers(detail);
     };
 </script>

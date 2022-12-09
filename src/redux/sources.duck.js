@@ -1,10 +1,11 @@
-import set from 'lodash.set';
 import { createSlice } from "@reduxjs/toolkit";
+import set from 'lodash.set';
 
 const initialState = {
     layers: [],
     images: {},
-    selectedLayerId : 0,
+    selectedLayerId: 0,
+    collectionSize: 10,
 };
 
 const sourcesSlice = createSlice({
@@ -31,9 +32,9 @@ const sourcesSlice = createSlice({
             return state;
         },
         selectLayer(state, { payload }) {
-            state.selectedLayerId  = payload.id;
+            state.selectedLayerId = payload.id;
             return state;
-        },
+        }
     }
 });
 
