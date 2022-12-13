@@ -26,10 +26,12 @@
             title: detail,
         });
         expanded = [...expanded, id];
+        console.log(expanded);
     };
 
     const handleUpload = (layerId, file) => {
         addImage({ layerId, path: file.path, data: file.data });
+        console.log(addImage);
     };
 
     const hideFiles = (layerId) => {
@@ -69,21 +71,27 @@
                     <Fa icon={faGear} />
                 </button>
             </div>
+            {#if images.length}
+            <div class="grid grid-cols-7 gap-2">
+                {#each images as img}
+                    <img src={img} alt=""/>
+                {/each}
+            </div>
+    
+            
+            {/if}
             <div class="content-center mt-2">
-                <div class:hidden={hideFiles(selectedLayer.id)}>
+                <!-- class:hidden={hideFiles(selectedLayer.id)} -->
+                <div >
                     <UploadDropzone
                         on:upload={({ detail }) =>
                             handleUpload(selectedLayer.id, detail)}
                     />
                 </div>
             </div>
-            {#if images.length}
-                <div class="grid grid-cols-7 gap-2">
-                    {#each images as img}
-                        <img src={img} />
-                    {/each}
-                </div>
-            {/if}
+            
+         
         {/if}
+       
     </div>
 </div>

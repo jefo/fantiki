@@ -97,9 +97,10 @@
     }
 </script>
 
+<!-- class:hidden={Object.keys(images).length > 0} --> 
 <label
-    bind:this={dropzone}
-    class:hidden={Object.keys(images).length > 0}
+    bind:this={dropzone} 
+   
     class="flex justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none"
 >
     <span class="flex items-center space-x-2">
