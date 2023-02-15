@@ -5,10 +5,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "sirv dist --no-clear"
+    "preview": "sirv dist --no-clear",
+    "fix": "npx eslint --fix \"{,!(node_modules|public)/**/}*.{js,svelte}\"",
+    "format": "npx prettier --write \"{,!(node_modules|public)/**/}*.{js,svelte}\""
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.31",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.32.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-svelte": "^2.9.0",
     "svelte": "^3.44.2",
     "svelte-windicss-preprocess": "^4.2.8",
     "vite": "^3.0.2",
@@ -21,10 +28,13 @@
     "@reduxjs/toolkit": "^1.8.3",
     "accordion-js": "^3.3.0",
     "dropzone": "^6.0.0-beta.2",
+    "firebase": "^9.15.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
+    "merge-images": "^2.0.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "redux-persist-indexeddb-storage": "^1.0.4",
     "sirv-cli": "^1.0.0",
     "sortablejs": "^1.15.0",
     "svelte-dnd-action": "^0.9.19",
