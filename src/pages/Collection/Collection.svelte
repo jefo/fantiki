@@ -1,7 +1,6 @@
 <script>
   import Layer from "../../components/Layer.svelte";
   import Element from "../../components/Element.svelte";
-  import { onMount } from "svelte";
 
   let expandedId = null;
 
@@ -20,18 +19,16 @@
 
   export let images = {};
   export let nft = [];
-  export let generateCollection = null;
+  export let mergeImage = null;
 
-  onMount(() => {
-    setTimeout(() => {
-      generateCollection(images);
-    }, 2000);
-  });
+
+
 </script>
 
 <div class="collection__container">
   <div class="collection__layers">
     <div class="text-lg">Layers 1</div>
+    <button on:click={mergeImage}>КНОПКА</button>
     <div class="pr-4 layers-list">
       {#each layers as item}
         <div class="mb-2">
