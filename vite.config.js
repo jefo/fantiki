@@ -1,20 +1,20 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
-import { windi } from 'svelte-windicss-preprocess';
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import { windi } from "svelte-windicss-preprocess";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root: "src",
   publicDir: "../dist",
-  plugins: [svelte({
-    preprocess: [
-      windi({}),
-    ]
-  })],
+  plugins: [
+    svelte({
+      preprocess: [windi({})],
+    }),
+  ],
   server: {
-    port: 5000
+    port: 5000,
   },
   build: {
-    outDir: '../dist',
-  }
-})
+    outDir: "../dist",
+  },
+});
