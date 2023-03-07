@@ -1,11 +1,11 @@
 import set from "lodash.set";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import mergeImages from "merge-images";
+import mergeNft from "merge-images";
 
 let initialState = {
   nft: [],
-  mergeImages: [],
+  collection: [],
   layers: [],
   images: {},
   selectedLayerId: 0,
@@ -39,26 +39,24 @@ const sourcesSlice = createSlice({
       state.selectedLayerId = payload.id;
       return state;
     },
-    generateCollection(state, { payload }) {
-      const arrayNFT = payload.map((item) => Object.values(item));
-      const collectionNFT = arrayNFT.reduce((a, b) => {
-        return a.flatMap((d) => {
-          return b.map((e) => {
-            return [d, e].flat();
-          });
-        });
-      });
-
-      // collectionNFT.forEach((item) => {
-      //   mergeImages(item)
-      //   .then(()=> state.nft.push(item))
-      // })
-
-      state.nft = collectionNFT;
-      return state;
-    },
+    generateCollection(state, {payload}){
+      state.collecton = payload
+      return state
+    }
   },
 });
 
-export const actions = sourcesSlice.actions;
+const mergeImage = () => {
+  return (dispatch, getState) => {
+    mergeNft(getState().sources.nft)
+    .then((result) => {
+      console.log(result);
+      dispatch(sourcesSlice.actions.generateCollection(result))
+    })
+  };
+};
+
+
+
+export const actions = {...sourcesSlice.actions, mergeImage}
 export default sourcesSlice.reducer;

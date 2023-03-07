@@ -7,7 +7,6 @@
   import UploadDropzone from "../../components/UploadDropzone.svelte";
   import { faGear } from "@fortawesome/free-solid-svg-icons";
   import Sortable from "../../components/Sortable.svelte";
-  import { onMount } from "svelte";
 
   export let layers = [];
   export let images = {};
